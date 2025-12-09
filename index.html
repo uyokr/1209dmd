@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BEEFLIX</title>  
+  <meta name="description" content="생태계를 지키는 작은 존재, 꿀벌. BEEFLIX 오리지널 다큐멘터리 — 꿀벌집이 다 Bee었어요! 사라져가는 꿀벌과 우리의 미래를 연결하는 웹 다큐 프로젝트.">
+
+  <meta property="og:title" content="BEEFLIX — 꿀벌집이 다 Bee었어요!">
+  <meta property="og:site_name" content="BEEFLIX Documentary">
+  <meta property="og:image" content="https://yourdomain.com/bee-thumbnail.png">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:description" content="작고 위대한 생명, 꿀벌. 그들의 춤, 생태계, 그리고 사라지는 위기까지 — BEEFLIX 오리지널 다큐로 확인하세요.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BEEFLIX — 꿀벌집이 다 Bee었어요!">
+  <meta name="twitter:description" content="생태계를 떠받치는 꿀벌의 숨겨진 이야기. BEEFLIX 다큐멘터리 웹프로젝트.">
+  <meta name="twitter:image:src" content="https://yourdomain.com/bee-thumbnail.png">
+
+  <style type= "text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800;900&display=swap');
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Pretendard', sans-serif; background: black; color: white; overflow-x: hidden;}
+    nav {position: fixed; width: 100%; height: 70px; display: flex; align-items: center; padding: 0 40px; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 999;}
+    .nav-logo {font-size: 2rem; font-weight: 900; color: #ffce39; letter-spacing: -1px;}
+    nav ul {display: flex; list-style: none; margin-left: auto; gap: 25px;}
+    nav ul li a {text-decoration: none; font-size: 1rem; color: #fff;}
+    nav ul li a:hover {color: #ffce39;}
+    footer {padding: 60px; background: #000; text-align: center; color: gray; margin-top:100px;}
+    footer p {margin: 6px 0;}
+
+    html {scroll-behavior: smooth;}
+    #ep2 {position: relative; z-index: 5;}
+
+
+    .wrap {width: 1200px; margin: 0 auto;}
+
+
+    .profile {height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;}
+    .profile .wrap {height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    .BEEFLIX {font-size: 3rem; font-weight: 900; color: #ffce39;}
+    .choose {margin-top: 20px; font-size: 1.2rem;}
+    .profilebox {display: flex; gap: 40px; margin-top: 60px;}
+    .icon {width: 150px; height: 150px; border-radius: 10px; background-size: cover;background-position: center; transition: 0.3s; cursor: pointer;}
+    .icon:hover {transform: scale(1.08); opacity: 0.8;}
+    .red {background-image: url('red.png');}
+    .yellow {background-image: url('yellow.png');}
+    .green{background-image: url('green.png');}
+    .blue {background-image: url('blue.png');}
+
+    .mainpage {height: 100vh; background: url('https://cdn.midjourney.com/cab7919e-dae2-4e60-8844-6a6c7a8a2c8a/0_3.png') center /cover no-repeat; display: flex; align-items: flex-end; padding: 0 0 150px 80px; position: relative; background-size: cover; background-attachment: fixed;}
+    .mainpage::after {content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));}
+    .mainpagecontent {position: relative; z-index: 5; max-width: 650px; padding-right: 40px}
+    .BEE {font-size: 5rem;  font-weight: 900; color: #ffce39; text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); line-height: 1.3; letter-spacing: -3px;}
+    .documentary {margin-top: 20px; max-width: 480px; font-size: 1.3rem; opacity: 0.9; line-height: 1.8;}
+    .button {margin-top: 40px; display: inline-block; background: #ffce39; color: #000; padding: 14px 28px; font-weight: 700; border-radius: 6px; font-size: 1.2rem;text-decoration: none;}
+    .button:hover {background: #ffe27b;}
+
+    .episode {padding: 150px 80px;}
+    .title {font-size: 5rem; font-weight: 900; margin-bottom: 70px;color: #ffce39;}
+    .number {color: #999; margin-bottom: 10px; font-size: 1.5rem; letter-spacing: 1px;}
+    .caption {font-size: 1.2rem; line-height: 1.8; max-width: 1000px; opacity: 0.9; margin-bottom: 100px;}
+    .video {width: 70%; box-shadow: 0px 0px 30px rgba(0,0,0,0.5);margin: 0 auto 60px auto; display: block; padding-top: 30px}
+    .video2 {width: 70%; box-shadow: 0px 0px 30px rgba(0,0,0,0.5);margin: 0 auto 60px auto; display: block; padding-top: 200px}
+
+    .center {text-align: center;}
+    .captionstyle {margin: 0 auto 60px; text-align: center; width: 100%; font-style: italic; padding: 40px;line-height: 1.8;}
+    .captionstyle p {max-width: 1000px; margin: 0 auto 60px; text-align: center; font-style: italic;} 
+
+    .fadein {opacity: 0; transform: translateY(40px); transition: all 1s ease-out;}
+    .fadein.show {opacity: 1; transform: translateY(0);}
+    .stat-number {font-size: 4rem; font-weight: 900;color: #ffce39;text-align: center;margin: 40px 0 80px;}
+    .bee-chart {margin: 60px auto 100px;max-width: 1000px;text-align: center;}
+
+    .chart-title {font-size: 1.6rem;padding-top: 200px;font-weight: 800;}
+    .chart-wrapper {display: flex;gap: 35px;align-items: flex-end;justify-content: center;padding: 50px 20px 40px;border-radius: 20px;background: radial-gradient(circle at top, rgba(255,206,57,0.12), rgba(0,0,0,0.9));box-shadow: 0 0 40px rgba(0,0,0,0.5);}
+    .bar-group {display: flex;flex-direction: column;align-items: center;gap: 10px;}
+    .bar {width: 55px;height: 0;background: #ffce39;border-radius: 2px;transition: height 1.2s ease-out;}
+    .bar-label {font-size: 1rem;opacity: 0.95;font-weight: 600;}
+    .bar-value {font-size: 1rem;color: #ffce39;opacity: 0;transition: opacity 0.6s ease-out;font-weight: 700;}
+    .chart-caption {padding-bottom: 200px;padding-top: 50px;font-size: 0.9rem;color: #bbb;opacity: 0.9;}
+    .bee-ep2 {position: absolute; width: 180px; top: 300px; right: 260px; z-index: 20;animation: ep2Fly 7s infinite ease-in-out;pointer-events: none;}
+    @keyframes ep2Fly {
+    0% { transform: translate(0,0) rotate(0); }
+    20% { transform: translate(-40px, 20px) rotate(-10deg); }
+    40% { transform: translate(-20px, 60px) rotate(5deg); }
+    60% { transform: translate(40px, 40px) rotate(15deg); }
+    80% { transform: translate(60px, -10px) rotate(5deg); }
+    100% { transform: translate(0,0) rotate(0); }
+  }
+    .bg-video-section {position: relative;width: 100%;height: 100vh; overflow: hidden;}
+    .bg-video {position: absolute;top: 50%;left: 50%;min-width: 100%;min-height: 100%;width: auto;height: auto;transform: translate(-50%, -50%);object-fit: cover;z-index: -1;}
+    .bg-caption {position: absolute;bottom: 80px;width: 100%;text-align: center;font-size: 1.3rem;line-height: 1.8;color: #ffffff;opacity: 0.9;font-style: italic;}
+    .if{font-size: 4rem; text-align: center;}
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+  <nav>
+    <div class="nav-logo">BEEFlIX</div>
+    <ul>
+      <li><a href="#ep1">Episode 1</a></li>
+      <li><a href="#ep2">Episode 2</a></li>
+      <li><a href="#ep3">Episode 3</a></li>
+      <li><a href="#ep4">Episode 4</a></li>
+    </ul>
+  </nav>
+
+
+<section class="profile">
+  <div class="profile wrap">
+  <h1 class="BEEFLIX">BEEFLIX</h1>
+  <p class="choose">화면을 시청할 프로필을 선택하세요.</p>
+  <div class="profilebox fadein">  
+  <a href="#mainpage" class="icon red"></a>
+  <a href="#mainpage" class="icon yellow"></a>
+  <a href="#mainpage" class="icon green"></a>
+  <a href="#mainpage" class="icon blue"></a>
+</div>
+</section>
+
+
+<section class="mainpage" id="mainpage">
+    <div class="wrap">
+    <div class="mainpagecontent">
+      <h1 class="BEE">꿀벌집이<br>다 Bee었어요!</h1>
+      <h2 class="documentary">
+        BEEFLIX ORIGINAL DOCUMENTARY</h2>
+      <p>생태계를 지키는 작고 위대한 존재, 꿀벌. 하지만 지금, 그들이 전 세계에서 사라지고 있다.
+      </p>
+      <a href="#ep1" class="button fadein">▶ 지금 시청하기</a>
+    </div>
+  </div>
+</section>
+
+
+
+  <section class="episode" id="ep1">
+    <div class="wrap">
+    <p class="number">EPISODE 1</p>
+    <h2 class="title">Bee밀 : 꿀벌은 춤으로 말한다</h2>
+    <p class="caption">
+      꿀벌이 그냥 나는 것처럼 보이지만, 사실 춤을 추는 것이다.<br>
+      8자 형태의 이 춤은 "워글댄스"라고 불리는데, 이것으로 꿀벌들은 소통한다.<br>
+      몸을 떠는 시간은 ‘얼마나 멀리 있는지’, 회전 각도는 ‘어디로 가야 하는지’, 그리고 반복 속도는 ‘그 꽃이 얼마나 좋은지’를 알려준다.
+    </p>
+    <video class="video" autoplay muted loop playsinline>
+  <source src="waggle.mp4" type="video/mp4">
+</video>
+</section>
+
+  <section class="episode" id="ep2">
+  <div class="wrap">
+  
+    <p class="number">EPISODE 2</p>
+    <h2 class="title">Bee하인드 : 그 춤은 생태계를 살린다.</h2>
+
+    <p class="caption">
+      이 춤은 단순히 정보 전달로만 끝나지 않는다.<br>
+      꿀벌은 이 춤으로 종자식물에서 수술의 화분이 암술머리에 옮겨 붙는 수분을 진행할 수 있다.
+    </p>
+
+    <img src="이건 나중에 추가할거.png" class="bee-ep2">
+    
+
+  </div>
+</section>
+
+<section class="bg-video-section">
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="nature2.mp4" type="video/mp4">
+  </video>
+
+  <div class="bg-caption">
+    그덕에 자연 생태계가 유지되고 우리는 편안한 삶을 살아왔다.<br>
+    하지만 이 삶이 영원할지에 대해 문제가 제기되는데...
+  </div>
+</section>
+
+
+  <section class="episode" id="ep3">
+    <div class="wrap">
+    <div class="number">EPISODE 3</div>
+    <div class="title">Bee상 : 꿀벌이 사라지고 있다.</div>
+
+    <p class="caption">
+      농약·기후 위기·서식지 파괴·바이러스 등 꿀벌 군집 붕괴 현상(CCD)을 가속화 되고있다.<br>
+      한국의 경우, 2022~2023년 겨울에만 약 78억 마리의 꿀벌이 집단 폐사하며 국내 양봉 산업에 큰 타격을 주었다.<br>
+      미국과 유럽에서도 매년 30~40%의 벌집이 사라지는 ‘군집붕괴현상’이 반복되며 수분 곤충의 75%가 감소한 지역도 보고되고 있다.
+    </p>
+    <div class="bee-chart" id="beeChart">
+  <h3 class="chart-title">전 세계 꿀벌 군집 연간 손실률</h3>
+
+  <div class="chart-wrapper">
+
+    <div class="bar-group">
+      <div class="bar" data-value="30"></div>
+      <span class="bar-label">북미</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="22"></div>
+      <span class="bar-label">유럽</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="18"></div>
+      <span class="bar-label">중남미</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="12"></div>
+      <span class="bar-label">아시아</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="10"></div>
+      <span class="bar-label">아프리카</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="15"></div>
+      <span class="bar-label">오세아니아</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="35"></div>
+      <span class="bar-label">대한민국</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+    <div class="bar-group">
+      <div class="bar" data-value="20"></div>
+      <span class="bar-label">전 세계 평균</span>
+      <span class="bar-value">0%</span>
+    </div>
+
+  </div>
+
+  <p class="chart-caption">
+    * COLOSS·IPBES·국내 양봉협회 보고서 등을 참고한 예시 수치입니다.
+  </p>
+</div>
+<h3 class="if">만약 꿀벌이,</h3>
+
+    <div class="stat-number" id="beeLoss">0</div>
+  <h3 class="if">사라진다면?<br>.<br>.<br>.<br></h3>
+
+    <video class="video2" autoplay muted loop playsinline>
+  <source src="noplant2.mp4" type="video/mp4">
+</video>
+<section class="captionstyle">
+    <p class="captionstyle italic">
+      이러한 상황이 지속된다면 생태계는 무너지고, 인류 역시 지금처럼 살아갈 수가 없다.<br>
+      일부 연구자들은 “꿀벌이 사라지면 인류는 몇 년도 못 버틸 것”이라고 말하기도 한다.<br>
+      작은 균열은 곧 거대한 붕괴로 이어지고, 우리가 당연하게 여겼던 일상이 서서히 무너지게 되는데…
+    </p>
+</section>
+    <video class="video" autoplay muted loop playsinline>
+  <source src="human.mp4" type="video/mp4">
+</video>
+<section class="captionstyle">
+    <p class="captionstyle italic">
+      우리가 매일 보는 자연의 풍경,<br>
+      우리가 매일 먹는 식탁 위의 음식들,<br>
+      우리가 매일 마시는 깨끗한 공기까지,<br>
+      '당연했던 것'들이, 한순간에 ‘없어도 되는 것’처럼 무너져 내리게 된다.
+</section>
+  </section>
+
+
+  <section class="episode" id="ep4">
+    <div class="wrap">
+    <div class="number">EPISODE 4</div>
+    <div class="title">Bee결 : 일상을 지키는 방법</div>
+
+    <p class="caption">
+      꿀벌 군집 붕괴는 꿀벌만의 문제가 아니라 우리의 일상과 연결되어 있다.<br>
+      때문에 우리는 지금부터라도 꿀벌을 지켜야 한다. 무슨 방법이 있을까?<br>
+    </p>
+    <video class="video" autoplay muted loop playsinline>
+  <source src="localhoney.mp4" type="video/mp4">
+</video>
+<section class="captionstyle">
+    <p class="captionstyle italic">
+      최대한 로컬 꿀을 살 것.<br>
+      양봉가가 무너지면 벌들을 돌볼 사람이 없다.
+    </p>
+</section>
+    <video class="video" autoplay muted loop playsinline>
+  <source src="plant.mp4" type="video/mp4">
+</video>
+<section class="captionstyle">
+    <p class="captionstyle italic">
+      일상 속에 식물을 심는 방법도 있다.<br>
+      이 참에 식물을 한 번 심어보는 건 어떨까?
+    </p>
+</section>
+</video>
+    <video class="video" autoplay muted loop playsinline>
+  <source src="outro.mp4" type="video/mp4">
+</video>
+<section class="captionstyle">
+    <p class="captionstyle italic">
+      “우리는 함께 살아가는 법을 알고 있다.<br>
+      꿀벌도, 자연도, 그리고 우리도.”
+    </p>
+</section>
+</div>
+</section>
+    
+
+  <footer>
+    <div class="wrap">
+    <p>BEEFLIX Original — 꿀벌집이 다 Bee었어요!</p>
+    <p>시각디자인전공 24101029 윤동주 모든 권리 보유</p>
+    <p>banana050928@gmail.com</p>
+    <p>© 2025 Bee Documentary Project</p>
+  </footer>
+  </footer>
+
+<script>
+function animateValueEaseOut(id, start, end) {
+  let obj = document.getElementById(id);
+  let current = start;
+
+  function update() {
+    obj.innerHTML = current + "%";
+
+    if (current < end) {
+      current++;
+      let progress = current / end; 
+      let delay = 5 + progress * 40;  
+
+      setTimeout(update, delay);
+    }
+  }
+
+  update();
+}
+
+let hasCounted = false;
+
+const observerCount = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting && !hasCounted){
+      animateValueEaseOut("beeLoss", 0, 100);
+      hasCounted = true;
+    }
+  });
+}, { threshold: 0.3 });
+
+observerCount.observe(document.getElementById("beeLoss"));
+</script>
+
+</script>
+<script>
+const beeChart = document.getElementById('beeChart');
+const bars = document.querySelectorAll('#beeChart .bar');
+const barValues = document.querySelectorAll('#beeChart .bar-value');
+let chartPlayed = false;
+
+const beeChartObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !chartPlayed) {
+      bars.forEach((bar, idx) => {
+        const value = bar.dataset.value;      
+        bar.style.height = (value * 7) + 'px';
+        barValues[idx].textContent = value + '%';
+        barValues[idx].style.opacity = 1;
+      });
+      chartPlayed = true;
+    }
+  });
+}, { threshold: 0.3 });
+
+if (beeChart) {
+  beeChartObserver.observe(beeChart);
+}
+</script>
+
+
+<script>
+const options = { threshold: 0.2 };
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  })
+}, options);
+
+document.querySelectorAll('.fadein').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
